@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gpt_ui/controller/auth_controller.dart';
+import 'package:gpt_ui/controller/home_controller.dart';
 import 'package:gpt_ui/view/screens/login_screen/login_screen.dart';
 
 void main() async {
@@ -16,6 +17,7 @@ void main() async {
       appId: "1:69010420854:web:8429053866b92a223d9b57",
     ),
   );
+  Get.put(HomeController());
   Get.put(AuthController());
   runApp(MyApp());
 }

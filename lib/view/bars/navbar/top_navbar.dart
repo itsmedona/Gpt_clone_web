@@ -12,6 +12,7 @@ class TopNavBar extends StatelessWidget {
   void _handleSubmitQuestion() {
     if (questionController.text.isNotEmpty) {
       submittedQuestion.value = questionController.text;
+      controller.addQuestion(submittedQuestion.value);
       questionController.clear();
       isQuestionSubmitted.value = true;
       activeBot.value = 'Claude-3.5-Sonnet';
@@ -63,19 +64,17 @@ class TopNavBar extends StatelessWidget {
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 18.0,
-                color:
-                    Colors.black, // Set text color to black for a better look
+                color: Colors.black,
               ),
             ),
             SizedBox(height: 10),
             Text(
               dialogueText,
               style: TextStyle(
-                color:
-                    Colors.black, // Set text color to black for a better look
+                color: Colors.black,
               ),
             ),
-            SizedBox(height: 2)
+            SizedBox(height: 2),
           ],
         ),
       ),
@@ -181,16 +180,16 @@ class TopNavBar extends StatelessWidget {
                       ),
                       filled: true,
                       contentPadding: EdgeInsets.symmetric(
-                        vertical: 10.0,
-                        horizontal: 20.0,
+                        vertical: 8.0,
+                        horizontal: 16.0,
                       ),
                     ),
                   ),
                 ),
-                SizedBox(width: 8),
-                ElevatedButton(
+                IconButton(
+                  icon: Icon(Icons.send),
                   onPressed: _handleSubmitQuestion,
-                  child: Text('Submit'),
+                  color: Colors.black,
                 ),
               ],
             ),

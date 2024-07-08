@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gpt_ui/controller/auth_controller.dart';
+import 'package:gpt_ui/view/screens/home_screen/home_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
@@ -8,7 +9,6 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AuthController authController = Get.find<AuthController>();
-
     double quarterScreenWidth = MediaQuery.of(context).size.width / 4;
 
     return Scaffold(
@@ -24,7 +24,6 @@ class LoginScreen extends StatelessWidget {
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 40),
-                // Email text field
                 SizedBox(
                   width: quarterScreenWidth,
                   child: TextField(
@@ -43,7 +42,7 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(
                   width: quarterScreenWidth,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () => Get.off(HomeScreen()),
                     child: Text('Continue'),
                     style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.symmetric(vertical: 16.0),
@@ -55,7 +54,6 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(height: 10),
                 Text("OR"),
                 SizedBox(height: 10),
-                // Sign in with Google
                 SizedBox(
                   width: quarterScreenWidth,
                   child: ElevatedButton.icon(

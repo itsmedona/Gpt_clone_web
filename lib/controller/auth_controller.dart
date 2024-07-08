@@ -5,6 +5,13 @@ import 'package:gpt_ui/view/screens/home_screen/home_screen.dart';
 
 class AuthController extends GetxController {
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  final GoogleSignIn googleSignIn = GoogleSignIn(
+    scopes: [
+      'email',
+      'https://www.googleapis.com/auth/contacts.readonly',
+    ],
+  );
+
   Rxn<User?> _firebaseUser = Rxn<User?>();
 
   User? get user => _firebaseUser.value;
@@ -17,7 +24,7 @@ class AuthController extends GetxController {
 
   void signInWithGoogle() async {
     try {
-      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+      final GoogleSignInAccount? googleUser = await googleSignIn.signIn();
       if (googleUser == null) return;
 
       final GoogleSignInAuthentication googleAuth =
@@ -37,6 +44,7 @@ class AuthController extends GetxController {
       }
     } catch (error) {
       Get.snackbar('Error', 'Failed to sign in: $error');
+      print('Failed to sign in: $error'); // Print the error to the console
     }
   }
 
