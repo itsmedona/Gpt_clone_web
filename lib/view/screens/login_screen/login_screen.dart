@@ -29,6 +29,8 @@ class LoginScreen extends StatelessWidget {
                   child: TextField(
                     controller: emailController,
                     decoration: InputDecoration(
+
+                      
                       labelText: 'Email address',
                       border: OutlineInputBorder(),
                       contentPadding: EdgeInsets.symmetric(
