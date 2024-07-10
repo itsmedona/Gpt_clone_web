@@ -12,7 +12,7 @@ class TopNavBar extends StatelessWidget {
   void _handleSubmitQuestion() {
     if (questionController.text.isNotEmpty) {
       submittedQuestion.value = questionController.text;
-      controller.addQuestion(submittedQuestion.value);
+      //controller.addQuestion(submittedQuestion.value);
       questionController.clear();
       isQuestionSubmitted.value = true;
       activeBot.value = 'Claude-3.5-Sonnet';

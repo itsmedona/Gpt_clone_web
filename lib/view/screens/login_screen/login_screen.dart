@@ -10,7 +10,6 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final AuthController authController = Get.find<AuthController>();
     double quarterScreenWidth = MediaQuery.of(context).size.width / 4;
-
     return Scaffold(
       body: Center(
         child: Padding(
@@ -29,8 +28,6 @@ class LoginScreen extends StatelessWidget {
                   child: TextField(
                     controller: emailController,
                     decoration: InputDecoration(
-
-                      
                       labelText: 'Email address',
                       border: OutlineInputBorder(),
                       contentPadding: EdgeInsets.symmetric(
@@ -44,7 +41,9 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(
                   width: quarterScreenWidth,
                   child: ElevatedButton(
-                    onPressed: () => Get.off(HomeScreen()),
+                    onPressed: () {
+                      Get.off(() => HomeScreen());
+                    },
                     child: Text('Continue'),
                     style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.symmetric(vertical: 16.0),
